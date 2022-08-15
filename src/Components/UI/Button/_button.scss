@@ -1,44 +1,58 @@
 @use '../../../Assets/Styles/Project/_project' as *;
 
 /**
- * Abstract of a button
+ * Create the button
  *
- * @param   $bg-color     the background color
- * @param   $text-color   the text color
+ * @param   $bg-color           the background color, default value 'transparent'
+ * @param   $text-color         the text color, default value 'map-get($colors, black)'
+ * @param   $hover-bg-color     the hover background color, default value 'transparent'
+ * @param   $hover-text-color   the hover text color, default value 'map-get($colors, muted)'
+ * @param   $border-radius      the border radius, default value '0'
+ * @param   $padding-y          the padding of button on y axis, default value '0'
+ * @param   $padding-x          the padding of button on x axis, default value '0'
  */
-@mixin _btn($bg-color, $text-color) {
-    border-radius: $global-border-radius;
+@mixin button($bg-color: transparent, $text-color: map-get($colors, black), $hover-bg-color: transparent, $hover-text-color: map-get($colors, muted), $border-radius: 0, $padding-y: 0, $padding-x: 0) {
+    padding: $padding-y $padding-x;
+    border-radius: $border-radius;
     background: map-get($colors, $bg-color);
     color: map-get($colors, $text-color);
     cursor: pointer;
 
     &:active,
     &:hover {
-        background: rgba(map-get($colors, $bg-color), $button-hover-alpha);
+        background: $hover-bg-color;
+        color: $hover-text-color;
     }
 }
 
 /**
- * Create the squared padded button
+ * Create styled button
  *
- * @param   $bg-color     the background color
- * @param   $text-color   the text color
- * @param   $spacing      the padding of button, default value '$global-spacing'
+ * @param   $style              the button style
  */
-@mixin btn-square($bg-color, $text-color, $spacing: $global-gap) {
-    @include _btn($bg-color, $text-color);
-    padding: $spacing;
-}
+@mixin styled-button($style: primary) {
+    $text-color: map-get($colors, white);
+    $bg-color: map-get($colors, $style);
 
-/**
- * Create the y:x padded button
- *
- * @param   $bg-color     the background color
- * @param   $text-color   the text color
- * @param   $spacing-y    the padding of button on y axis, default value '$global-spacing'
- * @param   $spacing-x    the padding of button on x axis, default value '$global-gap'
- */
-@mixin btn($bg-color, $text-color, $spacing-y: $global-spacing, $spacing-x: $global-gap) {
-    @include _btn($bg-color, $text-color);
-    padding: $spacing-y $spacing-x;
+    @if $style == secondary {
+        $bg-color: map-get($colors, secondary);
+    } @else if style == info {
+        $bg-color: map-get($colors, info);
+    } @else if style == muted {
+        $bg-color: map-get($colors, muted);
+    } @else if style == success {
+        $bg-color: map-get($colors, success);
+    } @else if style == warning {
+        $bg-color: map-get($colors, warning);
+    } @else if style == danger {
+        $bg-color: map-get($colors, danger);
+        $text-color: map-get($colors, black);
+    } @else if style == white {
+        $bg-color: map-get($colors, white);
+        $text-color: map-get($colors, black);
+    } @else if style == black {
+        $bg-color: map-get($colors, black);
+    }
+
+    @include button($bg-color: $bg-color, $text-color: $text-color, $hover-bg-color: rgba($bg-color, $button-hover-alpha), $hover-text-color: rgba($text-color, $button-hover-alpha), $border-radius: $global-border-radius, $padding-y: $global-spacing, $padding-x: $global-gap);
 }

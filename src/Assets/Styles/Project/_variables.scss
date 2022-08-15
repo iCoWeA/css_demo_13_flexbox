@@ -114,7 +114,7 @@ $backdrop-alpha: 0.5;
 /*  Button
     ========================================================================== */
 
-$button-hover-alpha: 0.5;
+$button-hover-alpha: 0.75;
 
 /*  Header
     ========================================================================== */
@@ -130,7 +130,11 @@ $header-left: 0;
 $admin-nav-width: 18rem;
 $admin-nav-width-md: 4rem;
 $admin-nav-height: 100vh;
-$admin-nav-scrollbar-width: 0.5rem;
+$admin-nav-top: 0;
+$admin-nav-left: 0;
+$admin-nav-scrollbar-width: 1rem;
+$admin-nav-scrollbar-padding: 0.25rem;
+$admin-nav-scrollbar-hover-alpha: 0.75;
 
 /*  Admin menu
     ========================================================================== */
