@@ -30,7 +30,7 @@
  *
  * @param   $style              the button style
  */
-@mixin styled-button($style: primary) {
+@mixin button-styled($style: primary) {
     $text-color: map-get($colors, white);
     $bg-color: map-get($colors, $style);
 
