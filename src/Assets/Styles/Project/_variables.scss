@@ -28,11 +28,6 @@ $breakpoints: (
 $global-container-min-height: 100vh;
 $global-container-width: 1fr;
 
-// Admin menu
-$admin-menu-width: 0;
-$admin-menu-width-md: 4rem;
-$admin-menu-width-lg: 18rem;
-
 // Pad
 $pad-width: auto;
 
@@ -128,3 +123,10 @@ $header-width: 100vw;
 $header-height: 5rem;
 $header-top: 0;
 $header-left: 0;
+
+/*  Navbar
+    ========================================================================== */
+
+$navbar-width: 0;
+$navbar-width-md: 4rem;
+$navbar-width-lg: 18rem;
