@@ -4,14 +4,13 @@
     @include col-layout-container(none, $justify-items: center, $align-items: center);
     width: $header-width;
     height: $header-height;
+    grid-template-areas: "pad-left menuBtn title title userBtn pad-right";
     position: fixed;
     top: $header-top;
     left: $header-left;
     z-index: map-get($z-index, fixed-header);
     box-shadow: $global-shadow;
     background: map-get($colors, secondary);
-
-    grid-template-areas: "pad-left menuBtn title title userBtn pad-right";
 }
 
 .header__title {
