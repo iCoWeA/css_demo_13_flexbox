@@ -324,6 +324,12 @@ template {
     ========================================================================== */
 /*  Button
     ========================================================================== */
+/*  Header
+    ========================================================================== */
+/*  Admin navbar
+    ========================================================================== */
+/*  Admin menu
+    ========================================================================== */
 /*  Typography
     ========================================================================== */
 /**
@@ -391,15 +397,15 @@ button:focus {
 
 /*  Helpers
     ========================================================================== */
-.shown {
+.active {
   display: block !important;
 }
 
-.shown--flex {
+.active--flex {
   display: flex !important;
 }
 
-.hidden {
+.disabled {
   display: none !important;
 }
 
@@ -442,21 +448,21 @@ fieldset {
 ::-webkit-file-upload-button {
   font-size: 1rem;
   line-height: 1.25rem;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*  Global
     ========================================================================== */
 @font-face {
-  /* font-family: ""; */
-  /* src: url("") format(""); */
+  font-family: "Source Sans Pro";
+  src: url("/src/Assets/Fonts/source-sans-pro-regular-400.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: block;
 }
 @font-face {
-  /* font-family: ""; */
-  /* src: url("") format(""); */
+  font-family: "Source Sans Pro";
+  src: url("/src/Assets/Fonts/source-sans-pro-bold-700.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: block;
@@ -464,7 +470,7 @@ fieldset {
 * {
   font-size: 1rem;
   line-height: 1.25rem;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -555,7 +561,7 @@ select,
 textarea {
   font-size: 1rem;
   line-height: 1.25rem;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*  Global
@@ -571,66 +577,307 @@ textarea {
     ========================================================================== */
 /**
  * Abstract of a column layout container
+ *
+ * @param   $align-items        the align of items
+ * @param   $justify-items      the justify of items
  */
-._col-layout-container, .footer, .aside, .main, .navbar, .header {
-  display: grid;
-  place-content: stretch stretch;
-  place-items: stretch stretch;
-  grid-gap: 1rem;
-  grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
-}
-@media (min-width: 48rem) {
-  ._col-layout-container, .footer, .aside, .main, .navbar, .header {
-    grid-gap: 1.5rem;
-    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(8, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
-  }
-}
-@media (min-width: 62rem) {
-  ._col-layout-container, .footer, .aside, .main, .navbar, .header {
-    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(12, [col-start] minmax(0, 4rem) [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
-  }
-}
-
 /**
  * Column layout container
  *
  * Use to the layout container (header, navbar, main, etc.)
  *
- * @param       $area       the area in global container (in layout)
+ * @param   $area               the area in global container (in layout)
+ * @param   $align-items        the align of items, default value 'stretch'
+ * @param   $justify-items      the justify of items, default value 'stretch'
  */
 /**
  * Full bleed wrapper
  *
  * Use as a wrapper to create the full-bleed element
+ *
+ * @param   $align-items        the align of items, default value 'stretch'
+ * @param   $justify-items      the justify of items, default value 'stretch'
  */
+/*  Global
+    ========================================================================== */
 .body {
   display: grid;
   place-content: start start;
   place-items: stretch stretch;
   grid-gap: 0;
   min-height: 100vh;
+  grid-template-rows: 5rem 1fr auto;
   grid-template-columns: 1fr;
   grid-template-areas: "header" "main" "footer";
 }
 
 .header {
-  grid-area: header;
+  display: grid;
+  place-content: stretch stretch;
+  place-items: center center;
+  grid-gap: 1rem;
+  grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  grid-area: none;
+  width: 100vw;
+  height: 5rem;
+  grid-template-areas: "pad-left menuBtn title title userBtn pad-right";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1039;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+  background: #0F4CA8;
+  display: none;
+}
+@media (min-width: 48rem) {
+  .header {
+    grid-gap: 1.5rem;
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(8, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+@media (min-width: 62rem) {
+  .header {
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(12, [col-start] minmax(0, 4rem) [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
 }
 
-.navbar {
-  grid-area: navbar;
+.header__title {
+  grid-area: title;
+  color: #fff;
+}
+
+.admin-nav {
+  display: grid;
+  place-content: stretch stretch;
+  place-items: stretch stretch;
+  grid-gap: 0;
+  width: 18rem;
+  height: 100vh;
+  grid-template-rows: 5rem auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+  background: #0F4CA8;
+}
+
+.admin-nav__header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+}
+
+.admin-nav__title {
+  color: #fff;
+}
+
+.admin-nav__content {
+  padding: 1.5rem 1rem 1.5rem 1.5rem;
+  overflow-y: scroll;
+}
+.admin-nav__content::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.admin-nav__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.admin-nav__content::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background: #FFA717;
+}
+.admin-nav__content::-webkit-scrollbar-thumb:hover {
+  background: #ffce7d;
 }
 
 .main {
+  display: grid;
+  place-content: stretch stretch;
+  place-items: stretch stretch;
+  grid-gap: 1rem;
+  grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
   grid-area: main;
+  background: url("/src/Assets/Images/icowea.svg") no-repeat center/contain #2C7CF5;
+}
+@media (min-width: 48rem) {
+  .main {
+    grid-gap: 1.5rem;
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(8, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+@media (min-width: 62rem) {
+  .main {
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(12, [col-start] minmax(0, 4rem) [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
 }
 
 .aside {
+  display: grid;
+  place-content: stretch stretch;
+  place-items: stretch stretch;
+  grid-gap: 1rem;
+  grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
   grid-area: aside;
+}
+@media (min-width: 48rem) {
+  .aside {
+    grid-gap: 1.5rem;
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(8, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+@media (min-width: 62rem) {
+  .aside {
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(12, [col-start] minmax(0, 4rem) [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
 }
 
 .footer {
+  display: grid;
+  place-content: stretch stretch;
+  place-items: stretch stretch;
+  grid-gap: 1rem;
+  grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
   grid-area: footer;
+}
+@media (min-width: 48rem) {
+  .footer {
+    grid-gap: 1.5rem;
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(8, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+@media (min-width: 62rem) {
+  .footer {
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(12, [col-start] minmax(0, 4rem) [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+
+.admin-menu {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 3rem;
+}
+
+.admin-menu__container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 1.5rem;
+}
+
+.admin-menu__title {
+  color: #FFA717;
+}
+
+.admin-menu__btn, .admin-menu__icon--active {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 0;
+  color: #fff;
+  cursor: pointer;
+}
+.admin-menu__btn:hover, .admin-menu__icon--active:hover, .admin-menu__btn:active, .admin-menu__icon--active:active {
+  color: #c8ccd0;
+}
+.admin-menu__btn:hover .admin-menu__icon, .admin-menu__icon--active:hover .admin-menu__icon, .admin-menu__btn:active .admin-menu__icon, .admin-menu__icon--active:active .admin-menu__icon {
+  filter: invert(80%);
+}
+
+.admin-menu__btn-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 1.5rem;
+}
+
+.admin-menu__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  filter: invert(100%);
+}
+.admin-menu__icon--active {
+  transform: rotate(90deg);
+}
+
+.admin-menu__items {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 1.5rem;
+  padding-left: 1.25rem;
+  display: none;
+}
+
+.admin-menu__item {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.admin-menu__dot-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  width: 1.5rem;
+  height: 1.25rem;
+}
+
+.admin-menu__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #FFA717;
+}
+
+.admin-menu__link {
+  color: #fff;
+}
+.admin-menu__link:hover, .admin-menu__link:active {
+  color: #FFA717;
 }
 
 /*# sourceMappingURL=index.css.map */

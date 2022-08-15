@@ -3,7 +3,9 @@
 
 @use '../../Layout/Body/body'as *;
 @use '../../Layout/Header/header' as *;
-@use '../../Layout/Navbar/navbar' as *;
+@use '../../Layout/Navbar/adminNav' as *;
 @use '../../Layout/Main/main' as *;
 @use '../../Layout/Aside/aside' as *;
 @use '../../Layout/Footer/footer' as *;
+
+@use '../../Components/AdminMenu/adminMenu' as *;
