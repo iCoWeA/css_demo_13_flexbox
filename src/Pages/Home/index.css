@@ -821,6 +821,37 @@ textarea {
   background: #fff;
 }
 
+.user-menu-button {
+  padding: 0 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  grid-area: userMenuButton;
+  justify-self: end;
+}
+.user-menu-button:active, .user-menu-button:hover {
+  background: transparent;
+  color: #c8ccd0;
+}
+
+.user-menu-button__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+}
+
 .admin-menu {
   display: -webkit-box;
   display: -moz-box;

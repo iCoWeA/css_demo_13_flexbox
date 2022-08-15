@@ -1,0 +1,18 @@
+@use '../../Assets/Styles/Project/_project' as *;
+@use '../UI/Button/button' as *;
+
+.user-menu-button {
+    @include button;
+    @include flexbox-align-col($align: center, $justify: space-around, $gap: 0);
+    width: $header-button-size;
+    height: $header-button-size;
+    grid-area: userMenuButton;
+    justify-self: end;
+}
+
+.user-menu-button__dot {
+    width: $user-menu-button-dot-size;
+    height: $user-menu-button-dot-size;
+    border-radius: 50%;
+    background: map-get($colors, white);
+}
