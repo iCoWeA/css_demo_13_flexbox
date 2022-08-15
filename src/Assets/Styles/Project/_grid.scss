@@ -14,21 +14,21 @@
 @mixin global-container($theme: main) {
     @include grid-align($align-content: start, $justify-content: start, $gap: 0);
     min-height: $global-container-min-height;
-
-    @if $theme == admin {
-        grid-template-rows: $header-height 1fr auto;
-        grid-template-columns: auto $global-container-width;
-        grid-template-areas:
-                "menu header"
-                "menu main"
-                "menu footer";
-    } @else {
-        grid-template-rows: $header-height 1fr auto;
-        grid-template-columns: $global-container-width;
-        grid-template-areas:
+    grid-template-rows: $header-height 1fr auto;
+    grid-template-columns: $global-container-width;
+    grid-template-areas:
                 "header"
                 "main"
                 "footer";
+
+    @if $theme == admin {
+        @media (min-width: map-get($breakpoints, md)) {
+            grid-template-columns: auto $global-container-width;
+            grid-template-areas:
+                "navbar header"
+                "navbar main"
+                "navbar footer";
+        }
     }
 }
 

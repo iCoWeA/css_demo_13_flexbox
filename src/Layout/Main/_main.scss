@@ -2,4 +2,5 @@
 
 .main {
     @include col-layout-container(main);
+    background: url('/src/Assets/Images/icowea.png') no-repeat center/contain map-get($colors, primary);
 }
