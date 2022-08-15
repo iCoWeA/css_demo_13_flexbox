@@ -8,4 +8,5 @@
 @use '../../Layout/Aside/aside' as *;
 @use '../../Layout/Footer/footer' as *;
 
+@use '../../Components/AdminMenuButton/adminMenuButton' as *;
 @use '../../Components/AdminMenu/adminMenu' as *;

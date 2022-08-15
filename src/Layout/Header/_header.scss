@@ -4,7 +4,7 @@
     @include col-layout-container(none, $justify-items: center, $align-items: center);
     width: $header-width;
     height: $header-height;
-    grid-template-areas: "pad-left menuBtn title title userBtn pad-right";
+    grid-template-areas: "pad-left adminMenuButton title title userMenuButton pad-right";
     position: fixed;
     top: $header-top;
     left: $header-left;

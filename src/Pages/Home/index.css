@@ -326,6 +326,10 @@ template {
     ========================================================================== */
 /*  Header
     ========================================================================== */
+/*  Admin menu button
+    ========================================================================== */
+/*  Admin menu button
+    ========================================================================== */
 /*  Admin navbar
     ========================================================================== */
 /*  Admin menu
@@ -632,7 +636,7 @@ textarea {
   grid-area: none;
   width: 100vw;
   height: 4rem;
-  grid-template-areas: "pad-left menuBtn title title userBtn pad-right";
+  grid-template-areas: "pad-left adminMenuButton title title userMenuButton pad-right";
   position: fixed;
   top: 0;
   left: 0;
@@ -787,6 +791,36 @@ textarea {
  *
  * @param   $style              the button style
  */
+.admin-menu-button {
+  padding: 0 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  grid-area: adminMenuButton;
+  justify-self: start;
+}
+.admin-menu-button:active, .admin-menu-button:hover {
+  background: transparent;
+  color: #c8ccd0;
+}
+
+.admin-menu-button__bar {
+  height: 2px;
+  border-radius: 16px;
+  background: #fff;
+}
+
 .admin-menu {
   display: -webkit-box;
   display: -moz-box;

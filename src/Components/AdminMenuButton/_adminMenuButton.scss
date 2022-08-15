@@ -1,0 +1,17 @@
+@use '../../Assets/Styles/Project/_project' as *;
+@use '../UI/Button/button' as *;
+
+.admin-menu-button {
+    @include button;
+    @include flexbox-align-col($justify: space-around, $gap: 0);
+    width: $header-button-size;
+    height: $header-button-size;
+    grid-area: adminMenuButton;
+    justify-self: start;
+}
+
+.admin-menu-button__bar {
+    height: $admin-menu-button-bar-height;
+    border-radius: $global-border-radius;
+    background: map-get($colors, white);
+}
