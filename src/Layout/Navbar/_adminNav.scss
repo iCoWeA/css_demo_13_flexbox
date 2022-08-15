@@ -1,0 +1,45 @@
+@use '../../Assets/Styles/Project/_project' as *;
+
+.admin-nav {
+    @include grid-align($align-content: stretch, $justify-content: stretch, $gap: 0);
+    width: $admin-nav-width;
+    height: $admin-nav-height;
+    grid-template-rows: $header-height auto;
+    position: fixed;
+    top: $admin-nav-top;
+    left: $admin-nav-left;
+    z-index: map-get($z-index, fixed);
+    background: map-get($colors, secondary);
+}
+
+.admin-nav__header {
+    @include flexbox-align-row;
+    box-shadow: $global-shadow;
+}
+
+.admin-nav__title {
+    color: map-get($colors, white);
+}
+
+.admin-nav__content {
+    padding: $global-gap $global-gap - $admin-nav-scrollbar-width $global-gap $global-gap;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: $admin-nav-scrollbar-width;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border: $admin-nav-scrollbar-padding solid map-get($colors, secondary);
+        border-radius: $global-border-radius;
+        background: map-get($colors, warning);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(map-get($colors, warning), $admin-nav-scrollbar-hover-alpha);
+    }
+}

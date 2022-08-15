@@ -1,4 +1,4 @@
-const menuButtons = document.getElementsByClassName('admin-menu__btn');
+const menuButtons = document.getElementsByClassName('admin-menu__button');
 
 for (const menuButton of menuButtons) {
     menuButton.addEventListener('click', () => {

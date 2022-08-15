@@ -1,0 +1,76 @@
+@use '../../Assets/Styles/Project/_project' as *;
+@use '../UI/Button/button' as *;
+
+.admin-menu {
+    @include flexbox-align-col($gap: $admin-menu-gap);
+}
+
+.admin-menu__container {
+    @include flexbox-align-col;
+}
+
+.admin-menu__title {
+    color: map-get($colors, warning);
+}
+
+.admin-menu__button {
+    @include button($text-color: map-get($colors, white));
+    @include flexbox-align-row($justify: space-between, $gap: 0);
+
+    &:hover,
+    &:active {
+        .admin-menu__icon {
+            filter: invert(80%);
+        }
+    }
+}
+
+.admin-menu__button-wrapper {
+    @include flexbox-align-row;
+}
+
+.admin-menu__icon {
+    width: $admin-menu-icon-size;
+    height: $admin-menu-icon-size;
+    filter: invert(100%);
+
+    &--active {
+        @extend .admin-menu__button;
+        transform: rotate(90deg);
+    }
+}
+
+.admin-menu__items {
+    display: none;
+
+    &--active {
+        @include flexbox-align-col;
+        padding-left: $admin-menu-items-padding;
+    }
+}
+
+.admin-menu__item {
+    @include flexbox-align-row($justify: flex-start, $gap: 0);
+}
+
+.admin-menu__dot-wrapper {
+    @include flexbox-align-row;
+    width: $admin-menu-dot-wrapper-width;
+    height: $admin-menu-dot-wrapper-height;
+}
+
+.admin-menu__dot {
+    width: $admin-menu-dot-size;
+    height: $admin-menu-dot-size;
+    border-radius: 50%;
+    background: map-get($colors, warning);
+}
+
+.admin-menu__link {
+    color: map-get($colors, white);
+
+    &:hover,
+    &:active {
+        color: map-get($colors, warning);
+    }
+}
