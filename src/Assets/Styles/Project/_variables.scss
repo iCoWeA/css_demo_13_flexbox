@@ -43,7 +43,7 @@ $col-layout-container-columns-lg: 12;
 
 // Font stacks
 $font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$font-family-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif: Georgia, "Times New Roman", Times, serif;
 $font-family-mono: Menlo, Monaco, "Courier New", monospace;
 $global-font-family: $font-family-sans;
@@ -124,9 +124,20 @@ $header-height: 5rem;
 $header-top: 0;
 $header-left: 0;
 
-/*  Navbar
+/*  Admin navbar
     ========================================================================== */
 
-$navbar-width: 0;
-$navbar-width-md: 4rem;
-$navbar-width-lg: 18rem;
+$admin-nav-width: 18rem;
+$admin-nav-width-md: 4rem;
+$admin-nav-height: 100vh;
+$admin-nav-scrollbar-width: 0.5rem;
+
+/*  Admin menu
+    ========================================================================== */
+
+$admin-menu-gap: $global-gap * 2;
+$admin-menu-icon-size: $global-line-height;
+$admin-menu-items-padding: $admin-menu-icon-size;
+$admin-menu-dot-wrapper-width: $global-gap;
+$admin-menu-dot-wrapper-height: $global-line-height;
+$admin-menu-dot-size: 4px;

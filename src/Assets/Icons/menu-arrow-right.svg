@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+        id="Outline"
+        viewBox="0 0 24 24"
+        width="512"
+        height="512"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+>
+    <defs
+            id="defs583"/>
+    <path
+            d="m 8.709219,4.790781 a 1,1 0 0 0 0,1.42 l 4.58,4.58 a 1,1 0 0 1 0,1.42 l -4.58,4.58 a 1,1 0 0 0 0,1.42 1,1 0 0 0 1.41,0 l 4.59,-4.59 a 3,3 0 0 0 0,-4.24 l -4.59,-4.59 a 1,1 0 0 0 -1.41,0 z"
+            id="path578"/>
+</svg>
