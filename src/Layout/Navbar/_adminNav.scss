@@ -24,6 +24,8 @@
 .admin-nav__content {
     padding: $global-gap $global-gap - $admin-nav-scrollbar-width $global-gap $global-gap;
     overflow-y: scroll;
+    scrollbar-width: $admin-nav-scrollbar-width; // firefox
+    scrollbar-color: map-get($colors, warning) transparent; // firefox
 
     &::-webkit-scrollbar {
         width: $admin-nav-scrollbar-width;

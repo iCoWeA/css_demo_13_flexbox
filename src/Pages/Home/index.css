@@ -343,10 +343,10 @@ template {
  * Abstract align for parent flexbox container
  *
  * @param   $direction    the direction of elements
- * @param   $wrap         the wrap of container, default value 'nowrap'
- * @param   $align        the align of content, default value 'center'
- * @param   $justify      the justify of items, default value 'space-around'
- * @param   $gap          the gap between items, default value '$global-gap'
+ * @param   $wrap         the wrap of container
+ * @param   $align        the align of content
+ * @param   $justify      the justify of items
+ * @param   $gap          the gap between items
  */
 /**
  * Row align for parent flexbox container
@@ -618,7 +618,7 @@ textarea {
   place-items: stretch stretch;
   grid-gap: 0;
   min-height: 100vh;
-  grid-template-rows: 5rem 1fr auto;
+  grid-template-rows: 4rem 1fr auto;
   grid-template-columns: 1fr;
   grid-template-areas: "header" "main" "footer";
 }
@@ -631,7 +631,7 @@ textarea {
   grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
   grid-area: none;
   width: 100vw;
-  height: 5rem;
+  height: 4rem;
   grid-template-areas: "pad-left menuBtn title title userBtn pad-right";
   position: fixed;
   top: 0;
@@ -664,7 +664,7 @@ textarea {
   grid-gap: 0;
   width: 18rem;
   height: 100vh;
-  grid-template-rows: 5rem auto;
+  grid-template-rows: 4rem auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -692,6 +692,8 @@ textarea {
 .admin-nav__content {
   padding: 1.5rem 0.5rem 1.5rem 1.5rem;
   overflow-y: scroll;
+  scrollbar-width: 1rem;
+  scrollbar-color: #FFA717 transparent;
 }
 .admin-nav__content::-webkit-scrollbar {
   width: 1rem;
@@ -770,7 +772,7 @@ textarea {
 }
 
 /**
- * Create the abstract button
+ * Create the button
  *
  * @param   $bg-color           the background color, default value 'transparent'
  * @param   $text-color         the text color, default value 'map-get($colors, black)'
