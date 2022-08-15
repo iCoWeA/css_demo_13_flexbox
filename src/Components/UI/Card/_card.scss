@@ -1,0 +1,13 @@
+@use '../../../Assets/Styles/Project/_project' as *;
+
+/**
+ * Create the card
+ *
+ * @param   $bg-color   the background color, default value 'transparent'
+ */
+@mixin card($bg-color: transparent) {
+    padding: $global-spacing;
+    border-radius: $global-border-radius;
+    background: map-get($colors, $bg-color);
+    box-shadow: $global-shadow;
+}

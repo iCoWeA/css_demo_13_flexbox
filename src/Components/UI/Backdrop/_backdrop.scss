@@ -1,0 +1,12 @@
+@use '../../../Assets/Styles/Project/_project' as *;
+
+.backdrop {
+    width: $backdrop-width;
+    height: $backdrop-height;
+    display: none;
+    position: fixed;
+    top: $backdrop-top;
+    left: $backdrop-left;
+    z-index: map-get($z-index, dropdown);
+    background: rgba(map-get($grays, black), $backdrop-alpha);
+}

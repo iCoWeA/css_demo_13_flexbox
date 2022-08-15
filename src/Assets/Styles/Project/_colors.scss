@@ -1,0 +1,31 @@
+/*  Global
+    ========================================================================== */
+
+// Grays
+$grays: (
+        white : #fff,
+        100 : #e4e6e7,
+        200 : #c8ccd0,
+        300 : #adb3b8,
+        400 : #9299a0,
+        500 : #778088,
+        600 : #3b4044,
+        700 : #3b4044,
+        800 : #2f3337,
+        900 : #181a1b,
+        black : #000
+);
+
+// Colors schemes
+$colors: (
+        primary : #fff,
+        secondary : #fff,
+        info : #fff,
+        muted : map-get($grays, 200),
+        success : #fff,
+        warning : #fff,
+        danger : #fff,
+        black : map-get($grays, black),
+        white : map-get($grays, white),
+        transparent : transparent
+);

@@ -1,0 +1,44 @@
+@use '../../../Assets/Styles/Project/_project' as *;
+
+/**
+ * Abstract of a button
+ *
+ * @param   $bg-color     the background color
+ * @param   $text-color   the text color
+ */
+@mixin _btn($bg-color, $text-color) {
+    border-radius: $global-border-radius;
+    background: map-get($colors, $bg-color);
+    color: map-get($colors, $text-color);
+    cursor: pointer;
+
+    &:active,
+    &:hover {
+        background: rgba(map-get($colors, $bg-color), $button-hover-alpha);
+    }
+}
+
+/**
+ * Create the squared padded button
+ *
+ * @param   $bg-color     the background color
+ * @param   $text-color   the text color
+ * @param   $spacing      the padding of button, default value '$global-spacing'
+ */
+@mixin btn-square($bg-color, $text-color, $spacing: $global-gap) {
+    @include _btn($bg-color, $text-color);
+    padding: $spacing;
+}
+
+/**
+ * Create the y:x padded button
+ *
+ * @param   $bg-color     the background color
+ * @param   $text-color   the text color
+ * @param   $spacing-y    the padding of button on y axis, default value '$global-spacing'
+ * @param   $spacing-x    the padding of button on x axis, default value '$global-gap'
+ */
+@mixin btn($bg-color, $text-color, $spacing-y: $global-spacing, $spacing-x: $global-gap) {
+    @include _btn($bg-color, $text-color);
+    padding: $spacing-y $spacing-x;
+}

@@ -1,0 +1,5 @@
+@use '../../Assets/Styles/Project/_project' as *;
+
+.header {
+    @include col-layout-container(header);
+}

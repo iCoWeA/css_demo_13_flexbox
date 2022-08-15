@@ -1,0 +1,5 @@
+@use '../../Assets/Styles/Project/_project' as *;
+
+.body {
+    @include global-container;
+}

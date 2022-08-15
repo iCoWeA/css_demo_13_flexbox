@@ -1,0 +1,83 @@
+@use 'variables' as *;
+@use 'mixins'as *;
+
+/*  Global
+    ========================================================================== */
+
+/**
+ * Global container
+ *
+ * Use to the body or the page container
+ *
+ * @param   $theme   the type of theme, default value 'main'
+ */
+@mixin global-container($theme: main) {
+    @include grid-align($align-content: start, $justify-content: start, $gap: 0);
+    min-height: $global-container-min-height;
+
+    @if $theme == admin {
+        grid-template-columns: auto $global-container-width;
+        grid-template-areas:
+                "menu header"
+                "menu mian"
+                "menu footer";
+    } @else {
+        grid-template-columns: $global-container-width;
+        grid-template-areas:
+                "header"
+                "main"
+                "footer";
+    }
+}
+
+/*  Column layout
+    ========================================================================== */
+
+/**
+ * Abstract of a column layout container
+ */
+._col-layout-container {
+    @include grid-align($align-content: stretch, $justify-content: stretch, $gap: $global-spacing);
+
+    grid-template-columns:
+            [container-start pad-left-start] $pad-width
+            [pad-left-end content-start]repeat($col-layout-container-columns, [col-start] $col-layout-container-columns-width [col-end]) [content-end pad-right-start]
+            $pad-width [pad-right-end container-end];
+
+    @media (min-width: map-get($breakpoints, md)) {
+        grid-gap: $global-gap;
+        grid-template-columns:
+                [container-start pad-left-start] $pad-width
+                [pad-left-end content-start]repeat($col-layout-container-columns-md, [col-start] $col-layout-container-columns-width [col-end]) [content-end pad-right-start]
+                $pad-width [pad-right-end container-end];
+    }
+
+    @media (min-width: map-get($breakpoints, lg)) {
+        grid-template-columns:
+                [container-start pad-left-start] $pad-width
+                [pad-left-end content-start] repeat($col-layout-container-columns-lg, [col-start] $col-layout-container-columns-width-lg [col-end]) [content-end pad-right-start]
+                $pad-width [pad-right-end container-end];
+    }
+}
+
+/**
+ * Column layout container
+ *
+ * Use to the layout container (header, navbar, main, etc.)
+ *
+ * @param       $area       the area in global container (in layout)
+ */
+@mixin col-layout-container($area) {
+    @extend ._col-layout-container;
+    grid-area: $area;
+}
+
+/**
+ * Full bleed wrapper
+ *
+ * Use as a wrapper to create the full-bleed element
+ */
+@mixin full-bleed-wrapper {
+    @extend ._col-layout-container;
+    grid-column: container-start / container-end;
+}

@@ -1,0 +1,57 @@
+@use 'variables' as *;
+
+/*  Typography
+    ========================================================================== */
+
+/**
+ * Set the font size and the line height
+ *
+ * @param   $size   the size of font, default value '$global-font-size'
+ */
+@mixin set-font-size($size: $global-font-size) {
+    font-size: $size;
+    line-height: $size + $global-leading;
+}
+
+/*  Flexbox
+    ========================================================================== */
+
+/**
+ * Set align for parent flexbox container
+ *
+ * @param   $direction    the direction of elements, default value 'row'
+ * @param   $wrap         the wrap of container, default value 'nowrap'
+ * @param   $align        the align of content, default value 'stretch'
+ * @param   $justify      the justify of items, default value 'space-around'
+ * @param   $gap          the gap between items, default value '$global-gap'
+ */
+@mixin flexbox-align($direction: row, $wrap: nowrap, $align: stretch, $justify: space-around, $gap: $global-gap) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: $direction $wrap;
+    align-items: $align;
+    justify-content: $justify;
+    gap: $gap;
+}
+
+/*  Grid
+    ========================================================================== */
+
+/**
+ * Set align for parent grid container
+ *
+ * @param   $align-content      the align of content, default value 'center'
+ * @param   $justify-content    the justify of content, default value 'center'
+ * @param   $align-items        the align of items, default value 'stretch'
+ * @param   $justify-items      the justify of items, default value 'stretch'
+ * @param   $gap                the gap between items, default value '$global-gap'
+ */
+@mixin grid-align($align-content: center, $justify-content: center, $align-items: stretch, $justify-items: stretch, $gap: $global-gap) {
+    display: grid;
+    place-content: $align-content $justify-content;
+    place-items: $align-items $justify-items;
+    grid-gap: $gap;
+}
