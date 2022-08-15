@@ -44,15 +44,15 @@ button:focus {
 /*  Helpers
     ========================================================================== */
 
-.shown {
+.active {
     display: block !important;
 }
 
-.shown--flex {
+.active--flex {
     display: flex !important;
 }
 
-.hidden {
+.disabled {
     display: none !important;
 }
 

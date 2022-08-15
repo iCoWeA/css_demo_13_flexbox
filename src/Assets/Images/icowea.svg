@@ -61,7 +61,7 @@
                 x="414.82446"
                 y="232.83333"
                 id="text44844"
-                ><tspan
+        ><tspan
          id="tspan44842"
          style="font-weight:bold;stroke-width:0.121741"
          x="414.82446"
@@ -114,10 +114,10 @@
                 id="text45028"
                 transform="scale(-0.54533588,1.8337323)">
             <tspan
-         id="tspan45026"
-         style="font-weight:bold;fill:#ffa717;fill-opacity:1;stroke-width:0.118654"
-         x="-909.9668"
-         y="138.80643">&lt;</tspan></text>
+                    id="tspan45026"
+                    style="font-weight:bold;fill:#ffa717;fill-opacity:1;stroke-width:0.118654"
+                    x="-909.9668"
+                    y="138.80643">&lt;</tspan></text>
         <text
                 xml:space="preserve"
                 style="font-size:92.013px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro';fill:#ffa717;fill-opacity:1;stroke-width:0.138019"
