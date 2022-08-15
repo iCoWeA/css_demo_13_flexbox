@@ -14,7 +14,7 @@
 @mixin global-container($theme: main) {
     @include grid-align($align-content: start, $justify-content: start, $gap: 0);
     min-height: $global-container-min-height;
-    grid-template-rows: $header-height 1fr auto;
+    grid-template-rows: $header-row-height 1fr auto;
     grid-template-columns: $global-container-width;
     grid-template-areas:
                 "header"
@@ -87,7 +87,7 @@
  * @param   $align-items        the align of items, default value 'stretch'
  * @param   $justify-items      the justify of items, default value 'stretch'
  */
-@mixin full-bleed-wrapper($area, $align-items: stretch, $justify-items: stretch) {
+@mixin full-bleed-wrapper($align-items: stretch, $justify-items: stretch) {
     @include _col-layout-container($align-items: $align-items, $justify-items: $justify-items);
     grid-column: container-start / container-end;
 }

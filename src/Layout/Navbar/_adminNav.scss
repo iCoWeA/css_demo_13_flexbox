@@ -4,7 +4,7 @@
     @include grid-align($align-content: stretch, $justify-content: stretch, $gap: 0);
     width: $admin-nav-width;
     height: $admin-nav-height;
-    grid-template-rows: $header-height auto;
+    grid-template-rows: $header-row-height auto;
     position: fixed;
     top: $admin-nav-top;
     left: $admin-nav-left;
