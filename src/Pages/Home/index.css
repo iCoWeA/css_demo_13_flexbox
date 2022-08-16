@@ -330,6 +330,10 @@ template {
     ========================================================================== */
 /*  Admin menu button
     ========================================================================== */
+/*  Search bar
+    ========================================================================== */
+/*  User bar
+    ========================================================================== */
 /*  Admin navbar
     ========================================================================== */
 /*  Admin menu
@@ -365,7 +369,7 @@ template {
  *
  * @param   $wrap         the wrap of container, default value 'nowrap'
  * @param   $align        the align of content, default value 'stretch'
- * @param   $justify      the justify of items, default value 'space-around'
+ * @param   $justify      the justify of items, default value 'center'
  * @param   $gap          the gap between items, default value '$global-gap'
  */
 /*  Grid
@@ -622,7 +626,7 @@ textarea {
   place-items: stretch stretch;
   grid-gap: 0;
   min-height: 100vh;
-  grid-template-rows: 4rem 1fr auto;
+  grid-template-rows: 3rem 1fr auto;
   grid-template-columns: 1fr;
   grid-template-areas: "header" "main" "footer";
 }
@@ -630,19 +634,20 @@ textarea {
 .header {
   display: grid;
   place-content: stretch stretch;
-  place-items: center center;
+  place-items: stretch stretch;
   grid-gap: 1rem;
   grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
   grid-area: none;
   width: 100vw;
-  height: 4rem;
-  grid-template-areas: "pad-left adminMenuButton title title userMenuButton pad-right";
+  grid-template-rows: 3rem 3rem;
+  row-gap: 0;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1039;
   box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
   background: #0F4CA8;
+  display: none;
 }
 @media (min-width: 48rem) {
   .header {
@@ -652,6 +657,49 @@ textarea {
 }
 @media (min-width: 62rem) {
   .header {
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(12, [col-start] minmax(0, 4rem) [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+
+.header__mobile-content-wrapper {
+  display: grid;
+  place-content: stretch stretch;
+  place-items: center center;
+  grid-gap: 1rem;
+  grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  grid-column: container-start/container-end;
+  grid-template-areas: "pad-left adminMenuButton title title userMenuButton pad-right";
+}
+@media (min-width: 48rem) {
+  .header__mobile-content-wrapper {
+    grid-gap: 1.5rem;
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(8, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+@media (min-width: 62rem) {
+  .header__mobile-content-wrapper {
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(12, [col-start] minmax(0, 4rem) [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+
+.header__content-wrapper {
+  display: grid;
+  place-content: stretch stretch;
+  place-items: stretch stretch;
+  grid-gap: 1rem;
+  grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(4, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  grid-column: container-start/container-end;
+  grid-template-areas: "pad-left searchBar searchBar userBar userBar pad-right";
+  background: #fff;
+}
+@media (min-width: 48rem) {
+  .header__content-wrapper {
+    grid-gap: 1.5rem;
+    grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(8, [col-start] 1fr [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
+  }
+}
+@media (min-width: 62rem) {
+  .header__content-wrapper {
     grid-template-columns: [container-start pad-left-start] auto [pad-left-end content-start] repeat(12, [col-start] minmax(0, 4rem) [col-end]) [content-end pad-right-start] auto [pad-right-end container-end];
   }
 }
@@ -668,7 +716,7 @@ textarea {
   grid-gap: 0;
   width: 18rem;
   height: 100vh;
-  grid-template-rows: 4rem auto;
+  grid-template-rows: 3rem auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -780,8 +828,8 @@ textarea {
  *
  * @param   $bg-color           the background color, default value 'transparent'
  * @param   $text-color         the text color, default value 'map-get($colors, black)'
- * @param   $hover-bg-color     the hover background color, default value 'transparent'
- * @param   $hover-text-color   the hover text color, default value 'map-get($colors, muted)'
+ * @param   $bg-color-hover     the hover background color, default value 'transparent'
+ * @param   $text-color-hover   the hover text color, default value 'map-get($colors, muted)'
  * @param   $border-radius      the border radius, default value '0'
  * @param   $padding-y          the padding of button on y axis, default value '0'
  * @param   $padding-x          the padding of button on x axis, default value '0'
@@ -852,6 +900,25 @@ textarea {
   background: #fff;
 }
 
+.search-bar {
+  grid-area: searchBar;
+  background: red;
+}
+
+.user-bar {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  grid-area: userBar;
+  justify-self: end;
+}
+
 .admin-menu {
   display: -webkit-box;
   display: -moz-box;
@@ -860,7 +927,7 @@ textarea {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  justify-content: space-around;
+  justify-content: center;
   gap: 3rem;
 }
 
@@ -872,7 +939,7 @@ textarea {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  justify-content: space-around;
+  justify-content: center;
   gap: 1.5rem;
 }
 
@@ -880,7 +947,7 @@ textarea {
   color: #FFA717;
 }
 
-.admin-menu__button, .admin-menu__icon--active {
+.admin-menu__button {
   padding: 0 0;
   border-radius: 0;
   background: transparent;
@@ -893,36 +960,33 @@ textarea {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 0;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  position: relative;
 }
-.admin-menu__button:active, .admin-menu__icon--active:active, .admin-menu__button:hover, .admin-menu__icon--active:hover {
+.admin-menu__button:active, .admin-menu__button:hover {
   background: transparent;
   color: #c8ccd0;
 }
-.admin-menu__button:hover .admin-menu__icon, .admin-menu__icon--active:hover .admin-menu__icon, .admin-menu__button:active .admin-menu__icon, .admin-menu__icon--active:active .admin-menu__icon {
-  filter: invert(80%);
-}
-
-.admin-menu__button-wrapper {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
-  gap: 1.5rem;
-}
-
-.admin-menu__icon {
+.admin-menu__button::after {
+  content: "";
   width: 1.25rem;
   height: 1.25rem;
-  filter: invert(100%);
+  position: absolute;
+  right: 0;
+  background: url("/src/Assets/Icons/menu-arrow-right-white.svg") center/contain;
 }
-.admin-menu__icon--active {
+.admin-menu__button--active::after {
   transform: rotate(90deg);
+}
+.admin-menu__button::before {
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url("/src/Assets/Icons/menu-burger-white.svg") center/contain;
+}
+.admin-menu__button:hover::before, .admin-menu__button:active::before, .admin-menu__button:hover::after, .admin-menu__button:active::after {
+  filter: invert(20%);
 }
 
 .admin-menu__items {
@@ -936,8 +1000,10 @@ textarea {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  justify-content: space-around;
+  justify-content: center;
   gap: 1.5rem;
+}
+.admin-menu__items--active {
   padding-left: 1.25rem;
 }
 
@@ -948,30 +1014,22 @@ textarea {
   display: -webkit-flex;
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
   gap: 0;
+  background: transparent;
+  color: #181a1b;
 }
-
-.admin-menu__dot-wrapper {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
-  gap: 1.5rem;
+.admin-menu__item:hover, .admin-menu__item:active {
+  background: transparent;
+  color: #c8ccd0;
+}
+.admin-menu__item::before {
+  content: "";
   width: 1.5rem;
   height: 1.25rem;
-}
-
-.admin-menu__dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #FFA717;
+  display: inline-block;
+  background: url("/src/Assets/Icons/dot-warning.svg") center/contain;
 }
 
 .admin-menu__link {

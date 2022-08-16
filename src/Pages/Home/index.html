@@ -9,17 +9,23 @@
 <body class="body">
 <div class="backdrop"></div>
 <header class="header">
-    <button class="admin-menu-button">
-        <span class="admin-menu-button__bar"></span>
-        <span class="admin-menu-button__bar"></span>
-        <span class="admin-menu-button__bar"></span>
-    </button>
-    <h3 class="header__title">Demo Grid</h3>
-    <button class="user-menu-button">
-        <span class="user-menu-button__dot"></span>
-        <span class="user-menu-button__dot"></span>
-        <span class="user-menu-button__dot"></span>
-    </button>
+    <div class="header__mobile-content-wrapper">
+        <button class="admin-menu-button">
+            <span class="admin-menu-button__bar"></span>
+            <span class="admin-menu-button__bar"></span>
+            <span class="admin-menu-button__bar"></span>
+        </button>
+        <h3 class="header__title">Demo Grid</h3>
+        <button class="user-menu-button">
+            <span class="user-menu-button__dot"></span>
+            <span class="user-menu-button__dot"></span>
+            <span class="user-menu-button__dot"></span>
+        </button>
+    </div>
+    <div class="header__content-wrapper">
+        <div class="search-bar"></div>
+        <div class="user-bar"></div>
+    </div>
 </header>
 <nav class="admin-nav">
     <div class="admin-nav__header">
@@ -29,135 +35,69 @@
         <ul class="admin-menu">
             <li class="admin-menu__container">
                 <h4 class="admin-menu__title">Navigation</h4>
-                <button class="admin-menu__button">
-                    <span class="admin-menu__button-wrapper">
-                        <img class="admin-menu__icon" alt="admin-menu-burger-icon" src="/src/Assets/Icons/menu-burger.svg">
-                        Navigation
-                    </span>
-                    <img class="admin-menu__icon" alt="admin-menu-arrow-right" src="/src/Assets/Icons/menu-arrow-right.svg">
-                </button>
+                <button class="admin-menu__button">Navigation</button>
                 <ul class="admin-menu__items">
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
-                        <a class="admin-menu__link" href="#gridTemplateExample">Grid template</a>
+                        <a class="admin-menu__link" href="#gridTemplateExample">Grid
+                            template</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
-                        <a class="admin-menu__link" href="#gridTemplateAreasExample">Grid template
-                            areas</a>
+                        <a class="admin-menu__link" href="#gridTemplateAreasExample">Grid
+                            template areas</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#automaticallyGeneratedAreasExample">Automatically
                             generated areas</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#gridGapExample">Grid gap</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#alignContentExample">Align content</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#justifyContentExample">Justify content</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#placeContentExample">Place content</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#alignItemsExample">Align items</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#justifyItemsExample">Justify items</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#placeItemsExample">Place items</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#gridAutoRowsExample">Grid auto rows</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
-                        <a class="admin-menu__link" href="#gridAutoColumnsExample">Grid auto
-                            columns</a>
+                        <a class="admin-menu__link" href="#gridAutoColumnsExample">Grid auto columns</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#gridAutoFlowExample">Grid flow</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#gridRowExample">Grid row</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#gridColumnExample">Grid column</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#gridAreaExample">Grid area</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#overlayItemsExample">Overlay items</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#alignSelfExample">Align self</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#justifySelfExample">Justify self</a>
                     </li>
                     <li class="admin-menu__item">
-                        <div class="admin-menu__dot-wrapper">
-                            <div class="admin-menu__dot"></div>
-                        </div>
                         <a class="admin-menu__link" href="#placeSelfExample">Place self</a>
                     </li>
                 </ul>
