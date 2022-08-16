@@ -5,13 +5,13 @@
  *
  * @param   $bg-color           the background color, default value 'transparent'
  * @param   $text-color         the text color, default value 'map-get($colors, black)'
- * @param   $hover-bg-color     the hover background color, default value 'transparent'
- * @param   $hover-text-color   the hover text color, default value 'map-get($colors, muted)'
+ * @param   $bg-color-hover     the hover background color, default value 'transparent'
+ * @param   $text-color-hover   the hover text color, default value 'map-get($colors, muted)'
  * @param   $border-radius      the border radius, default value '0'
  * @param   $padding-y          the padding of button on y axis, default value '0'
  * @param   $padding-x          the padding of button on x axis, default value '0'
  */
-@mixin button($bg-color: transparent, $text-color: map-get($colors, black), $hover-bg-color: transparent, $hover-text-color: map-get($colors, muted), $border-radius: 0, $padding-y: 0, $padding-x: 0) {
+@mixin button($bg-color: transparent, $text-color: map-get($colors, black), $bg-color-hover: transparent, $text-color-hover: map-get($colors, muted), $border-radius: 0, $padding-y: 0, $padding-x: 0) {
     padding: $padding-y $padding-x;
     border-radius: $border-radius;
     background: map-get($colors, $bg-color);
@@ -20,8 +20,8 @@
 
     &:active,
     &:hover {
-        background: $hover-bg-color;
-        color: $hover-text-color;
+        background: $bg-color-hover;
+        color: $text-color-hover;
     }
 }
 
@@ -54,5 +54,5 @@
         $bg-color: map-get($colors, black);
     }
 
-    @include button($bg-color: $bg-color, $text-color: $text-color, $hover-bg-color: rgba($bg-color, $button-hover-alpha), $hover-text-color: rgba($text-color, $button-hover-alpha), $border-radius: $global-border-radius, $padding-y: $global-spacing, $padding-x: $global-gap);
+    @include button($bg-color: $bg-color, $text-color: $text-color, $bg-color-hover: rgba($bg-color, $button-hover-alpha), $text-color-hover: rgba($text-color, $button-hover-alpha), $border-radius: $global-border-radius, $padding-y: $global-spacing, $padding-x: $global-gap);
 }
